@@ -1,0 +1,73 @@
+# skillet preamble information used by panhandler
+# ---------------------------------------------------------------------
+# unique snippet name
+name: NetSecOpenSkillet-panos
+# label used for menu selection
+label: NetSecOpen_label
+description: Skillet for NetSecOpen configuration
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - NetSecOpenCollection
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: zone_name_trust
+    description: Trusted Zone Name
+    default: Trust-L3
+    type_hint: text
+  - name: zone_name_untrust
+    description: Untrusted Zone Name
+    default: Untrust-L3
+    type_hint: text
+  - name: eth_interface_trust
+    description: Trusted Ethernet Interface
+    default: ethernet1/9
+    type_hint: text
+  - name: eth_interface_untrust
+    description: Untrusted Ethernet Interface
+    default: ethernet1/10
+    type_hint: text
+   
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+snippets:
+  - name: network
+    xpath: /config/devices/entry[@name='localhost.localdomain']/network/interface/ethernet
+    file: network.xml
+  - name: virtual_routers
+    xpath: /config/devices/entry[@name='localhost.localdomain']/network/virtual-router
+    file: virtual-router.xml
+  - name: zones
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/zone
+    file: zones.xml
+  - name: profiles
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profiles
+    file: profiles.xml
+  - name: profile-group
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group
+    file: profile-group.xml
+  - name: rules
+    xpath: /config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules
+    file: rules.xml
+# ---------------------------------------------------------------------
+# end of snippets section

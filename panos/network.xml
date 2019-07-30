@@ -1,0 +1,14 @@
+<entry name="{{ eth_interface_trust }}">
+            <layer3>
+              <ip>
+                <entry name="192.168.1.254/24"/>
+              </ip>
+            </layer3>
+          </entry>
+<entry name="{{ eth_interface_untrust }}">
+            <layer3>
+              <ip>
+                <entry name="192.168.2.254/24"/>
+              </ip>
+            </layer3>
+          </entry>

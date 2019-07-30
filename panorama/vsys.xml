@@ -1,0 +1,13 @@
+<entry name="{{ vsys_name }}">
+      <import>
+        <network>
+          <interface>
+            <member>{{ eth_interface_trust }}</member>
+            <member>{{ eth_interface_untrust }}</member>
+          </interface>
+          <virtual-router>
+            <member>NetSecOpen-vRouter</member>
+          </virtual-router>
+        </network>
+      </import>
+    </entry>

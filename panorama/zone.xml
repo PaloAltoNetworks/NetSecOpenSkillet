@@ -1,0 +1,14 @@
+<entry name="{{ zone_name_trust }}">
+    <network>
+      <layer3>
+        <member>{{ eth_interface_trust }}</member>
+      </layer3>
+    </network>
+  </entry>
+  <entry name="{{ zone_name_untrust }}">
+    <network>
+      <layer3>
+        <member>{{ eth_interface_untrust }}</member>
+      </layer3>
+    </network>
+  </entry>
