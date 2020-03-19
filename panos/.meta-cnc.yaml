@@ -1,7 +1,7 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: net_sec_open-panos
+name: net_sec_open_panos
 # label used for menu selection
 label: NetSecOpen_label
 description: Skillet for NetSecOpen configuration
